@@ -1,15 +1,15 @@
 {
-  "name": "JATE",
+  "name": "jate",
+  "description": "Just Another Text Editor",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"cd server && npm run server\"\"cd client && npm run client\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server && nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm install && cd ../client && npm install",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,16 @@
     "if-env": "^1.0.4"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "7.21.3",
+    "@babel/plugin-syntax-import-assertions": "7.20.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-config-xo": "^0.43.1",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "6.1.1",
+    "prettier": "^2.7.1",
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
